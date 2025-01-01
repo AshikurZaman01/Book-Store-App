@@ -2,13 +2,14 @@ import { IoHeartOutline } from "react-icons/io5";
 import { BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import UserProfile from "./UserProfile";
+import { useSelector } from "react-redux";
 
 
 const Navitems = () => {
 
     const currentUser = true;
 
-    
+    const { cartItems } = useSelector((state) => state.cart)
 
     return (
         <div className="flex items-center md:gap-5 gap-3">
@@ -26,7 +27,7 @@ const Navitems = () => {
                         <div className="relative">
                             <BsCart4 className="w-6 h-6" />
                             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full px-1">
-                                0
+                                {cartItems.length}
                             </span>
                         </div>
                     </button>
