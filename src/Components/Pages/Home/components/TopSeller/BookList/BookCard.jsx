@@ -4,7 +4,7 @@ import { FiShoppingCart } from 'react-icons/fi'
 
 const BookCard = ({ book, isLoading }) => {
 
-
+    console.log(book.coverImage)
     return (
         <div className=" rounded-lg transition-shadow duration-300">
             <div
@@ -13,7 +13,7 @@ const BookCard = ({ book, isLoading }) => {
                 <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
                     <Link to={`/books/${book?._id}`}>
                         <img
-                            src={`${getImageURL(book?.coverImage)}`}
+                            src={book?.coverImage}
                             alt=""
                             className="w-[200px] h-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
                         />
