@@ -8,6 +8,8 @@ const Navitems = () => {
 
     const currentUser = true;
 
+    
+
     return (
         <div className="flex items-center md:gap-5 gap-3">
 
