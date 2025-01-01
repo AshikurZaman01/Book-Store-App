@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
-import getImageURL from '../../../../../Utils/getImageURL '
+
 import { FiShoppingCart } from 'react-icons/fi'
 
 const BookCard = ({ book, isLoading }) => {
 
-    console.log(book.coverImage)
     return (
         <div className=" rounded-lg transition-shadow duration-300">
             <div
