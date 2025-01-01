@@ -7,6 +7,8 @@ import Dashboard from '../Components/Pages/Dashboard/Dashboard'
 
 
 const AppRoutes = () => {
+
+
     return (
 
         <Routes>
