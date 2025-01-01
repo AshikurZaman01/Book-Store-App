@@ -11,7 +11,7 @@ const TopSeller = () => {
     const { data: books, isLoading, error } = useQuery({
         queryKey: ['books'],
         queryFn: async () => {
-            const res = await axios.get('/src/assets/Data/books.json');
+            const res = await axios.get('https://6775288692222241481ac9ef.mockapi.io/books');
             return res.data
         }
     })

@@ -12,7 +12,13 @@ const BookList = ({ books = [], isLoading, error, selectedCategory }) => {
         ? books
         : books?.filter(book => book.category === selectedCategory.toLowerCase());
 
-
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center h-64 bg-gray-50 rounded-lg shadow-inner">
+                <div className="relative w-16 h-16 border-4 border-gray-300 rounded-full animate-spin border-t-blue-500"></div>
+            </div>
+        );
+    }
 
     return (
         <Swiper navigation={true}
