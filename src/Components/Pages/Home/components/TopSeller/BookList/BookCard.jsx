@@ -13,6 +13,8 @@ const BookCard = ({ book, isLoading }) => {
         setIsAdded(true);
     };
 
+    console.log(book)
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -25,7 +27,7 @@ const BookCard = ({ book, isLoading }) => {
                         <img
                             src={book?.coverImage || '/default-cover.jpg'}
                             alt={book?.title || 'Book Cover'}
-                            className="w-[200px] h-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
+                            className="w-[200px] h-full bg-cover mx-auto p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
                         />
                     </Link>
                 </div>
@@ -50,9 +52,8 @@ const BookCard = ({ book, isLoading }) => {
                     </p>
                     <button
                         onClick={() => handleAddToCart(book)}
-                        className={`bg-primary px-6 py-2 rounded-md btn btn-md space-x-1 flex items-center gap-1 ${
-                            isAdded ? 'disabled bg-gray-400 cursor-not-allowed' : ''
-                        }`}
+                        className={`bg-primary px-6 py-2 rounded-md btn btn-md space-x-1 flex items-center gap-1 ${isAdded ? 'disabled bg-gray-500 text-white cursor-not-allowed' : ''
+                            }`}
                         disabled={isAdded}
                     >
                         <FiShoppingCart />

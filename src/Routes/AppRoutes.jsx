@@ -6,6 +6,7 @@ import Checkout from '../Components/Pages/Checkout/Checkout'
 import Dashboard from '../Components/Pages/Dashboard/Dashboard'
 import Login from '../Components/Pages/Login/Login'
 import Register from '../Components/Pages/Register/Register'
+import SingleBook from '../Components/Pages/Home/components/TopSeller/BookList/SingleBook'
 
 
 const AppRoutes = () => {
@@ -19,6 +20,8 @@ const AppRoutes = () => {
             <Route path='/cart' element={<Cart></Cart>} />
             <Route path='/checkout' element={<Checkout></Checkout>} />
             <Route path='/dashboard' element={<Dashboard></Dashboard>} />
+
+            <Route path='/books/:id' element={<SingleBook></SingleBook>} />
 
             <Route path='/login' element={<Login></Login>} />
             <Route path='/register' element={<Register></Register>} />
