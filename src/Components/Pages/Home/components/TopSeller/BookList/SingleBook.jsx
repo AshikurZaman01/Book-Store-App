@@ -12,7 +12,7 @@ const SingleBook = () => {
     const [isAdded, setIsAdded] = useState(false);
 
     const handleAddToCart = (book) => {
-        dispatch(addToCart(book?.data));
+        dispatch(addToCart(book));
         setIsAdded(true);
     };
 

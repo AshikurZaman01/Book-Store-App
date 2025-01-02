@@ -1,6 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { addOrder } from "../../../Redux/Features/Orders/orderSlice";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { crearCart } from "../../../Redux/Features/Cart/cartSlice";
 
 const CheckoutForm = () => {
+
+    const dispatch = useDispatch();
+    const { cartItems } = useSelector((state) => state.cart);
+    const totalPrice = cartItems.reduce((acc, item) => acc + item.newPrice * item.quantity, 0).toFixed(2);
 
     const [checkOutDetails, setCheckOutDetails] = useState({
         name: '',
@@ -15,6 +24,7 @@ const CheckoutForm = () => {
 
     const [isChecked, setIsChecked] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
 
     const onChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -42,10 +52,22 @@ const CheckoutForm = () => {
             return;
         }
         setErrorMessage('');
-        console.log(checkOutDetails);
 
+        const order = {
+            id: Date.now(),
+            user: { ...checkOutDetails },
+            items: cartItems,
+            totalPrice: totalPrice
+        };
+
+        dispatch(addOrder(order));
+
+        toast.success("Order placed successfully!");
+
+        navigate("/orders");
+
+        dispatch(crearCart());
     };
-
 
 
     return (

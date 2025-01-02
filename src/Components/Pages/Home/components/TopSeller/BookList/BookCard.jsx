@@ -13,7 +13,6 @@ const BookCard = ({ book, isLoading }) => {
         setIsAdded(true);
     };
 
-    console.log(book)
 
     if (isLoading) {
         return <div>Loading...</div>;

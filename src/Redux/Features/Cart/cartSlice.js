@@ -16,7 +16,7 @@ const cartSlice = createSlice({
             const existingItem = state.cartItems.find((item) => item._id === action.payload._id);
 
             if (!existingItem) {
-                // Initialize quantity if adding new item
+                
                 state.cartItems.push({ ...action.payload, quantity: 1 });
                 toast.success('Item added to cart');
             } else {
